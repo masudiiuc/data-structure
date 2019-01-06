@@ -1,11 +1,8 @@
 function print_even (n)
 {
-    if (n <= 2){
-        return false;
-    }
-
-    for(i = 2; i <= n; i+2) {
-        is_even(n);
+    console.log('--------');
+    for(var i = 2; i <= n; i = i + 2) {
+        is_even(i);
     }
 }
 
@@ -15,5 +12,5 @@ function is_even(val) {
     }
 }
 
-
+print_even(1);
 print_even(10);
