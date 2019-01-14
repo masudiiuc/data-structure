@@ -76,7 +76,7 @@ function find_nine_from_matrix(graph, start_point )
     var col_move_list = [1, -1, 0, 0];
 
     while(bfs_queue.size() != 0) {
-        console.log('>>', distance);
+        //console.log('>>', distance);
         var current_node = bfs_queue.dequeue();
         var x = current_node[0];
         var y = current_node[1];
@@ -90,12 +90,12 @@ function find_nine_from_matrix(graph, start_point )
 
             if (is_valid_path(graph, visited, next_row, next_col)) {
 
-                if (is_destination(graph, next_row, next_col)) {
-                    return distance[x][y];
-                }
-    
                 bfs_queue = add_to_queue(bfs_queue, next_row, next_col);
                 distance[next_row][next_col] = distance[x][y] + 1;
+
+                if (is_destination(graph, next_row, next_col)) {
+                    return distance[next_row][next_col];
+                }
             }
         }
         
