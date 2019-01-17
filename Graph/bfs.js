@@ -52,6 +52,7 @@ function breadth_first_search(graph, root)
     return visited_arr;
 }
 
+
 function add_to_queue(search_queue, arr_of_values) {
 
     if (typeof arr_of_values == 'undefined') {

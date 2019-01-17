@@ -61,11 +61,39 @@ function is_destination(graph, cur_row, cur_col) {
     return graph[cur_row][cur_col] == '9';
 }
 
+function print_path(path, dest_row, dest_col, st_row, st_col) 
+{
+    
+    console.log(st_row, st_col);
+    var x = dest_row;
+    var y = dest_col;
+    do  {
+        console.log('x: ', x, 'y:', y);
+        var tempX = path[x][y].x;
+        var tempY = path[x][y].y;
+        x = tempX;
+        y = tempY;
+    }while( !(x == st_row && y == st_col))
+    console.log('x: ', x, 'y:', y);
+}
+
+function printPath(path, dest_row, dest_col, st_row, st_col) {
+
+    console.log('x: ',dest_row,'y:', dest_col );
+
+    if(dest_row == st_row && dest_col == st_col) {
+        return;
+    }
+
+    printPath(path, path[dest_row][dest_col].x, path[dest_row][dest_col].y, st_row, st_col);
+}
+
 function find_nine_from_matrix(graph, start_point )
 {
     var bfs_queue = new Queue();
     var visited = new Array(graph.length).fill(false).map(() => new Array(graph[0].length).fill(false));
     var distance = new Array(graph.length).fill(0).map(() => new Array(graph[0].length).fill(0));
+    var path = new Array(graph.length).fill({}).map( () => new Array(graph[0].length).fill({}));
 
     var row = start_point[0];
     var col = start_point[1];
@@ -92,9 +120,12 @@ function find_nine_from_matrix(graph, start_point )
 
                 bfs_queue = add_to_queue(bfs_queue, next_row, next_col);
                 distance[next_row][next_col] = distance[x][y] + 1;
+                path[next_row][next_col] = {'x':x, 'y':y};
+
 
                 if (is_destination(graph, next_row, next_col)) {
                     
+                    printPath(path, next_row, next_col, row, col);
                     return distance[next_row][next_col];
                 }
             }
