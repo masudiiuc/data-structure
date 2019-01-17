@@ -22,13 +22,13 @@ function xx_print_fibonnacci(n)
 
     var a = cache[n-1];
     if (!a) {
-        a = print_fibonnacci(n-1);
+        a = xx_print_fibonnacci(n-1);
         cache[n-1] = a; 
     }
 
     var b = cache[n-2];
     if (!b) {
-        b = print_fibonnacci(n-2);
+        b = xx_print_fibonnacci(n-2);
         cache[n-2] = b; 
     }
 
