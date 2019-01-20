@@ -65,17 +65,17 @@ function find_valid_knight_moves(board, start_point)
         () => new Array(8).fill({})
     );
     var visited_board_path = new Array(8).fill(false).map(
-        () => new Array(8).fill(false)
-    );
-
-    var distance = new Array(8).fill(0).map(() => new Array(8).fill(0));
+        () => newe = new Array(8).fill(0).map(() => new Array(8).fill(0));
 
 
     var valid_row_move = [-1, 1, -1, 1, -2, 2,  2,  -2 ];
     var valid_col_move = [-2,-2,  2 ,2,  1,  1, -1, -1 ];
 
     var row = start_point[0];
-    var col = start_point[1];
+     Array(8).fill(false)
+    );
+
+    var distancvar col = start_point[1];
 
     var search_board_queue = new Queue();
     
